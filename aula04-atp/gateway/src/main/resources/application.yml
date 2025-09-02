@@ -1,0 +1,27 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gateway
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: gateway
+            client-secret: dnGL7q5DL48Y9xO27T1scLMP0d9d9jMq
+            scope: openid, profile
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/fiap
+
+cloud:
+  gateway:
+    routes:
+      - id: hello-api
+        uri: http://localhost:8081/
+        predicates:
+          - Path=/hello/**
+        filters:
+          - TokenRelay=

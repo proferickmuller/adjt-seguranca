@@ -1,0 +1,17 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      - KEYCLOAK_ADMIN=fiap
+      - KEYCLOAK_ADMIN_PASSWORD=fiap
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=fiap
+      - KC_BOOTSTRAP_ADMIN_USERNAME=fiap
+    command: start-dev
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - keycloak_data:/opt/keycloak/data
+
+volumes:
+  keycloak_data:
