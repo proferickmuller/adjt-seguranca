@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "d4f0e6e0-3b2b-4dcf-beff-68307516fe41",
+		"name": "Pagamentos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34247899"
+	},
+	"item": [
+		{
+			"name": "HTTP",
+			"item": [
+				{
+					"name": "Todas as pessoas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pessoa",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nova Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Maria Oliveira\",\n    \"cpf\": \"23456789012\",\n    \"dataNascimento\": \"1990-05-15\",\n    \"cep\": \"20040002\",\n    \"logradouro\": \"Rua Primeiro de Março\",\n    \"bairro\": \"Centro\",\n    \"uf\": \"RJ\",\n    \"cidade\": \"Rio de Janeiro\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pessoa",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Novo Boleto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"idPessoa\": 1,\n\"valorDocumento\": 160.0,\n\"dataVencimento\": \"2025-12-01T12:00:00\",\n\"valorPago\": null,\n\"dataPagamento\": null,\n\"status\": \"PENDENTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/boleto",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"boleto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Boletos da Pessoa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/1/boletos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"1",
+								"boletos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HTTPS",
+			"item": [
+				{
+					"name": "Todas as pessoas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8080/pessoa",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nova Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Maria Oliveira\",\n    \"cpf\": \"23456789012\",\n    \"dataNascimento\": \"1990-05-15\",\n    \"cep\": \"20040002\",\n    \"logradouro\": \"Rua Primeiro de Março\",\n    \"bairro\": \"Centro\",\n    \"uf\": \"RJ\",\n    \"cidade\": \"Rio de Janeiro\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/pessoa",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Novo Boleto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"idPessoa\": 1,\n\"valorDocumento\": 160.0,\n\"dataVencimento\": \"2025-12-01T12:00:00\",\n\"valorPago\": null,\n\"dataPagamento\": null,\n\"status\": \"PENDENTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8081/boleto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"boleto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Boletos da Pessoa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8080/pessoa/1/boletos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"1",
+								"boletos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HTTP via Kong",
+			"item": [
+				{
+					"name": "Todas as pessoas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/pessoa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nova Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Maria Silva\",\n    \"cpf\": \"45678901233\",\n    \"dataNascimento\": \"1978-04-10\",\n    \"cep\": \"40020000\",\n    \"logradouro\": \"Praça Municipal\",\n    \"bairro\": \"Centro Histórico\",\n    \"uf\": \"BA\",\n    \"cidade\": \"Salvador\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/pessoa",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Novo Boleto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"idPessoa\": 2,\n\"valorDocumento\": 1600.0,\n\"dataVencimento\": \"2025-12-01T12:00:00\",\n\"valorPago\": null,\n\"dataPagamento\": null,\n\"status\": \"PENDENTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/boleto",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"boleto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Boletos da Pessoa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/pessoa/2/boletos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"pessoa",
+								"2",
+								"boletos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HTTPs via Kong",
+			"item": [
+				{
+					"name": "Todas as pessoas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/pessoa",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nova Pessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Maria Costa\",\n    \"cpf\": \"45678901232\",\n    \"dataNascimento\": \"1978-04-10\",\n    \"cep\": \"40020000\",\n    \"logradouro\": \"Praça Municipal\",\n    \"bairro\": \"Centro Histórico\",\n    \"uf\": \"BA\",\n    \"cidade\": \"Salvador\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/pessoa",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Novo Boleto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"idPessoa\": 2,\n\"valorDocumento\": 1600.0,\n\"dataVencimento\": \"2025-12-01T12:00:00\",\n\"valorPago\": null,\n\"dataPagamento\": null,\n\"status\": \"PENDENTE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8443/boleto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"boleto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Boletos da Pessoa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/pessoa/2/boletos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"pessoa",
+								"2",
+								"boletos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
